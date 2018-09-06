@@ -1,0 +1,70 @@
+/* Style Reset */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* Base Styles */
+body {
+    height: 100vh;
+    background: #333;
+}
+
+#memory-game {
+    margin: 50px auto;
+    width: 640px;
+    height: 640px;
+}
+
+#memory-game .score-board {
+    height: 40px;
+    width: 100%;
+    color: #fff;
+}
+
+#memory-game .card-board {
+    perspective: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 600px;
+}
+
+.card-board .memory-card {
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+    margin: 5px;
+    width: calc(25% - 10px);
+    height: calc(33% - 10px);
+    background-color: #fff;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    align-items: center;
+}
+
+.memory-card .front-face,
+.memory-card .back-face {
+    position: absolute;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    background-color: #fff;
+    backface-visibility: hidden;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+.memory-card .front-face {
+    transform: rotateY(180deg)
+}
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.matched {
+    visibility: hidden;
+}
